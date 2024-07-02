@@ -75,5 +75,15 @@ public class Deck {
         Collections.shuffle(deck, new Random());
     }
 
+    // method that returns the top card from the deck + removes it from the deck at the same time
+    public Card takeCard() {
+        // take a copy of the first card from the deck
+        Card cardToTake = new Card(deck.get(0));
+        // remove the card from the deck
+        deck.remove(0);
+        // give the card back
+        return cardToTake;
+    }
+
 
 }
