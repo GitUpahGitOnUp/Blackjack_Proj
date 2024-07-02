@@ -26,4 +26,11 @@ public class Card {
         return ("[" + rank + " of " + suit + "] (" + this.getValue() + ")");
     }
 
+    // creates a copy constructor to be used in takeCard() method in Deck class
+    // sets the suit + rank of a Card = to that of another Card provided in the parameters
+    public Card(Card card) {
+        this.suit = card.getSuit();
+        this.rank = card.getRank();
+    }
+
 }
