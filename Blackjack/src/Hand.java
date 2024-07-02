@@ -11,4 +11,16 @@ public class Hand {
     public void takeCardFromDeck(Deck deck) {
         hand.add(deck.takeCard());
     }
+
+    // toString() method to print the Dealer and Player's current hand
+    public String to
+
+    String() {
+        String output = "";
+        for (Card:
+             hand) {
+            output += card + " - ";
+        }
+        return output;
+    }
 }
