@@ -27,8 +27,16 @@ public class Main {
         testDeck.addCard(cCard);*/
 
         Deck testDeck = new Deck(true);
+        Hand testHand = new Hand();
+        testHand.takeCardFromDeck(testDeck);
+        testHand.takeCardFromDeck(testDeck);
+        testHand.takeCardFromDeck(testDeck);
+        System.out.println("testHand now has the following cards: ");
+        System.out.println(testHand);
+        System.out.println("testDeck now looks like this: ");
+        System.out.println(testDeck);
         // test out first shuffled deck
-        testDeck.shuffle();
+        //testDeck.shuffle();
 
         System.out.println(testDeck);
     }
