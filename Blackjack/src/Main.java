@@ -5,39 +5,6 @@ public class Main {
 
         // Create a new Game object
         Game blackjack = new Game();
-
-        // test out Suit class
-        //System.out.println(Suit.CLUB + "  - SUCCESS!");
-
-        // test out Rank class
-        //System.out.println(Rank.ACE + " has a value of " + Rank.ACE.rankValue);
-
-        // create new Card obj and test toString method functionality
-        //Card testCard = new Card(Suit.CLUB, Rank.ACE);
-        //System.out.println(testCard);
-
-        // creates test cards + deck
-       /* Deck testDeck = new Deck();
-        Card aCard = new Card(Suit.CLUB, Rank.QUEEN);
-        Card bCard = new Card(Suit.DIAMOND, Rank.ACE);
-        Card cCard = new Card(Suit.SPADE, Rank.SIX);
-        // add cards to testDeck
-        testDeck.addCard(aCard);
-        testDeck.addCard(bCard);
-        testDeck.addCard(cCard);*/
-
-        Deck testDeck = new Deck(true);
-        Hand testHand = new Hand();
-        testHand.takeCardFromDeck(testDeck);
-        testHand.takeCardFromDeck(testDeck);
-        testHand.takeCardFromDeck(testDeck);
-        System.out.println("testHand now has the following cards: ");
-        System.out.println(testHand);
-        System.out.println("testDeck now looks like this: ");
-        System.out.println(testDeck);
-        // test out first shuffled deck
-        //testDeck.shuffle();
-
-        System.out.println(testDeck);
+        
     }
 }

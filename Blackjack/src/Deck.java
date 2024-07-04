@@ -85,5 +85,14 @@ public class Deck {
         return cardToTake;
     }
 
+    // method to check if the deck of cards being used has cards left to draw from, or if it needs reshuffling
+    public boolean hasCards() {
+        if (deck.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }

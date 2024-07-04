@@ -21,31 +21,33 @@ public class Hand {
         return output;
     }
 
-    // var to count the number of aces + the current total value of the hand
-    int value = 0;
-    int aceCount = 0;
+    public int calculatedValue() {
+        // var to count the number of aces + the current total value of the hand
+        int value = 0;
+        int aceCount = 0;
 
-    // for ea card in this hand
-    for(
-    Card card :hand)
-
-    {
-        // add the card value to the hand
-        value += card.getValue();
-        // count how many aces have been added
-        if (card.getValue() == 11) {
-            aceCount++;
+        // for ea card in this hand
+        for (Card card : hand) {
+            // add the card value to the hand
+            value += card.getValue();
+            // count how many aces have been added
+            if (card.getValue() == 11) {
+                aceCount++;
+            }
         }
-    }
-    // if there is a scenario where we have mult. aces, as may be the case of drawing 10 + 2 or more aces
-    // got back and set ea ace to 1 until the current value < 21, if possible
-    if(value >21&&aceCount >0)
-
-    {
-        while (aceCount > 0 && value > 21) {
-            aceCount--;
-            value -= 10;
+        // if there is a scenario where we have mult. aces, as may be the case of drawing 10 + 2 or more aces
+        // got back and set ea ace to 1 until the current value < 21, if possible
+        if (value > 21 && aceCount > 0) {
+            while (aceCount > 0 && value > 21) {
+                aceCount--;
+                value -= 10;
+            }
         }
+        return value;
     }
-    return value;
+
+    // gets first card from Dealer's hand
+    public Card getCard(int idx) {
+        return hand.get(idx);
+    }
 }
