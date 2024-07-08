@@ -94,5 +94,25 @@ public class Deck {
         }
     }
 
+    // empties out current deck
+    public void emptyDeck() {
+        deck.clear();
+    }
+
+    // @param cards an arraylist of cards to be added to this deck
+    public void addCards(ArrayList<Card> cards) {
+        deck.addAll(cards);
+    }
+
+    // take all the cards from discarded deck + put them in this deck, shuffled.
+    // clear the old deck
+    // @param discard = the deck we're getting the cards from
+    public void reloadDeckFromDiscard(Deck discard) {
+        this.addCards(discard.getCards());
+        this.shuffle();
+        discard.emptyDeck();
+        System.out.println("Ran out of cards: creating a new deck from discard pile and shuffling deck.");
+    }
+
 
 }
