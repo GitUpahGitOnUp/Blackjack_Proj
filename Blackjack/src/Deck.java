@@ -114,5 +114,7 @@ public class Deck {
         System.out.println("Ran out of cards: creating a new deck from discard pile and shuffling deck.");
     }
 
-
+    public int cardsLeft() {
+        return deck.size();
+    }
 }

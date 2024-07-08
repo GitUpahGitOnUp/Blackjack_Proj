@@ -26,9 +26,22 @@ public class Player extends Person {
             }
             // scanner is not closed as it will be used later
         }
-        // testing it out
-        System.out.println("You selected: " + decision);
-
+        // if they decide to hit
+        if (decision == 1) {
+            // hit the deck using the deck + discard deck
+            this.hit(deck, discard);
+            // return (exit the method) if they have blackjack or busted
+            if (this.getHand().calculatedValue() > 20) {
+                return;
+            }
+            // if they didn't bust or get 21, this allows player to hit or stand again
+            else {
+                this.makeDecision(deck, discard);
+            }
+            // if they type any number other than 1, we'll assume they're standing
+        } else {
+            System.out.println("You stand.");
+        }
     }
 
 }

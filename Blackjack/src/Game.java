@@ -26,6 +26,17 @@ public class Game {
 
     //method to hold logic for ea. round
     private void startRound() {
+        if (wins > 0 || losses > 0 || pushes > 0) {
+            System.out.println();
+            System.out.println("Starting Next Round...Wins: " + wins + " Losses: " + losses + " Pushes: " + pushes);
+            dealer.getHand().discardHandToDeck(discarded);
+            player.getHand().discardHandToDeck(discarded);
+        }
+
+        // checks to make sure the deck has at least 4 cards left
+        if (deck.cardsLeft() < 4) {
+            deck.reloadDeckFromDiscard(discarded);
+        }
         //gives dealer two cards
         dealer.getHand().takeCardFromDeck(deck);
         dealer.getHand().takeCardFromDeck(deck);
@@ -64,6 +75,30 @@ public class Game {
         }
         player.makeDecision(deck, discarded);
 
+        // dealer's turn
+        dealer.printHand();
+        while (dealer.getHand().calculatedValue() < 17) {
+            dealer.hit(deck, discarded);
+        }
+        // verifies who the winner is
+        if (dealer.getHand().calculatedValue() > 21) {
+            System.out.println("Dealer busts");
+            wins++;
+        }
+        if (player.getHand().calculatedValue() > 21) {
+            System.out.println("Player busts.");
+            losses++;
+        } else if (dealer.getHand().calculatedValue() > player.getHand().calculatedValue()) {
+            System.out.println("You lose.");
+            losses++;
+        } else if (player.getHand().calculatedValue() > dealer.getHand().calculatedValue()) {
+            System.out.println("You win.");
+            wins++;
+        } else {
+            System.out.println("Push.");
+            pushes++;
+        }
+        startRound();
     }
 
 }

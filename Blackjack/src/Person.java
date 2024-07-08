@@ -45,6 +45,12 @@ public abstract class Person {
 
     // hit method, placed in Person class to be accessible to both Player and Dealer classes
     public void hit(Deck deck, Deck discard) {
-        
+        // if there are no cards left in the deck
+        if (!deck.hasCards()) {
+            deck.reloadDeckFromDiscard(discard);
+        }
+        this.hand.takeCardFromDeck(deck);
+        System.out.println(this.name + " gets a card");
+        this.printHand();
     }
 }
